@@ -18,7 +18,8 @@ public class Vibrations extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vibrations);
         button1 = (Button)findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() 
+        {
 
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
