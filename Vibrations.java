@@ -26,6 +26,9 @@ public class Vibrations extends Activity
                 if (v == button1) {
                     vibrator.vibrate(300000);
                 }
+                else {
+                    vibrator.cancel();
+                }
             }
         }
     }
