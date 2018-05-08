@@ -10,9 +10,8 @@ import android.view.View.OnClickListener;
 
 public class Vibrations extends Activity
 {
-    /** Called when the activity is first created. */
     private Button button1;
-    private Vibrator vibrator;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -20,16 +19,21 @@ public class Vibrations extends Activity
         setContentView(R.layout.activity_vibrations);
         button1 = (Button)findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
+
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-            public void onClick(View v) {
-                if (v == button1) {
+            public void onClick(View v)
+            {
+                if (v == button1)
+                {
                     vibrator.vibrate(300000);
                 }
-                else {
+                else
+                {
                     vibrator.cancel();
                 }
             }
         }
+
     }
 }
