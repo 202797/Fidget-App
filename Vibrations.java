@@ -24,7 +24,7 @@ public class Vibrations extends AppCompatActivity
     {
 
 
-        if (event.getAction() == MotionEvent.ACTION_UP)
+        if (event.getAction() == MotionEvent.ACTION_DOWN)
         {
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(300000);
         }
