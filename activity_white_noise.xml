@@ -7,27 +7,39 @@
     android:orientation="vertical"
     tools:context=".WhiteNoise">
 
-    <Button
+    <ToggleButton
         android:id="@+id/play_static1"
+        style="@android:style/Widget.DeviceDefault.Button.Toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Version 1" />
+        android:text="Version 1"
+        android:textOff="Version 1"
+        android:textOn="Version 1 (on)" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/play_static2"
+        style="@android:style/Widget.DeviceDefault.Button.Toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Version 2" />
+        android:text="Version 2"
+        android:textOff="Version 2"
+        android:textOn="Version 2 (on)" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/play_static3"
+        style="@android:style/Widget.DeviceDefault.Button.Toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Version 3" />
+        android:text="Version 3"
+        android:textOff="Version 3"
+        android:textOn="Version 3 (on)" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/play_static4"
+        style="@android:style/Widget.DeviceDefault.Button.Toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Version 4" />
+        android:text="Version 4"
+        android:textOff="Version 4"
+        android:textOn="Version 4 (on)" />
 </LinearLayout>
