@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anderson.bryce.fidgetapp">
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -18,11 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Vibrations"></activity>
-        <activity android:name=".ColorOrganization"></activity>
-        <activity android:name=".Audio"></activity>
-        <activity android:name=".DotShuffling"></activity>
-        <activity android:name=".DialsAndSliders"></activity>
+        <activity android:name=".Vibrations" />
+        <activity android:name=".ColorOrganization" />
+        <activity android:name=".WhiteNoise" />
+        <activity android:name=".DotShuffling" />
+        <activity android:name=".DialsAndSliders" />
     </application>
 
 </manifest>
