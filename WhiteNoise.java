@@ -3,8 +3,8 @@ package com.anderson.bryce.fidgetapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.media.MediaPlayer;
-import android.view.View;
-import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 public class WhiteNoise extends AppCompatActivity
 {
@@ -19,56 +19,84 @@ public class WhiteNoise extends AppCompatActivity
         final MediaPlayer STATIC3 = MediaPlayer.create(this, R.raw.static3);
         final MediaPlayer STATIC4 = MediaPlayer.create(this, R.raw.static4);
 
-        Button playStatic1 = (Button) this.findViewById(R.id.play_static1);
-        Button playStatic2 = (Button) this.findViewById(R.id.play_static2);
-        Button playStatic3 = (Button) this.findViewById(R.id.play_static3);
-        Button playStatic4 = (Button) this.findViewById(R.id.play_static4);
+        final ToggleButton playStatic1 = (ToggleButton) this.findViewById(R.id.play_static1);
+        final ToggleButton playStatic2 = (ToggleButton) this.findViewById(R.id.play_static2);
+        final ToggleButton playStatic3 = (ToggleButton) this.findViewById(R.id.play_static3);
+        final ToggleButton playStatic4 = (ToggleButton) this.findViewById(R.id.play_static4);
 
-        playStatic1.setOnClickListener(new View.OnClickListener() 
+        playStatic1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() //switches units on toggle
         {
-            @Override
-            public void onClick(View view) 
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
-                STATIC1.start();
-                STATIC2.stop();
-                STATIC3.stop();
-                STATIC4.stop();
+                if (playStatic1.isChecked())
+                {
+                    STATIC1.start();
+                    playStatic2.setChecked(false);
+                    playStatic3.setChecked(false);
+                    playStatic4.setChecked(false);
+                }
+                else
+                {
+                    STATIC1.stop();
+                    STATIC1.prepareAsync();
+                }
             }
         });
 
-        playStatic2.setOnClickListener(new View.OnClickListener() 
+        playStatic2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() //switches units on toggle
         {
-            @Override
-            public void onClick(View view) 
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
-                STATIC1.stop();
-                STATIC2.start();
-                STATIC3.stop();
-                STATIC4.stop();
+                if (playStatic2.isChecked())
+                {
+                    STATIC2.start();
+                    playStatic1.setChecked(false);
+                    playStatic3.setChecked(false);
+                    playStatic4.setChecked(false);
+                }
+                else
+                {
+                    STATIC2.stop();
+                    STATIC2.prepareAsync();
+                }
             }
         });
 
-        playStatic3.setOnClickListener(new View.OnClickListener() 
+        playStatic3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() //switches units on toggle
         {
-            @Override
-            public void onClick(View view) 
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
-                STATIC1.stop();
-                STATIC2.stop();
-                STATIC3.start();
-                STATIC4.stop();
+                if (playStatic3.isChecked())
+                {
+                    STATIC3.start();
+                    playStatic1.setChecked(false);
+                    playStatic2.setChecked(false);
+                    playStatic4.setChecked(false);
+                }
+                else
+                {
+                    STATIC3.stop();
+                    STATIC3.prepareAsync();
+                }
             }
         });
 
-        playStatic4.setOnClickListener(new View.OnClickListener() 
+        playStatic4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() //switches units on toggle
         {
-            @Override
-            public void onClick(View view) 
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
-                STATIC1.stop();
-                STATIC2.stop();
-                STATIC3.stop();
-                STATIC4.start();
+                if (playStatic4.isChecked())
+                {
+                    STATIC4.start();
+                    playStatic1.setChecked(false);
+                    playStatic2.setChecked(false);
+                    playStatic3.setChecked(false);
+                }
+                else
+                {
+                    STATIC4.stop();
+                    STATIC4.prepareAsync();
+                }
             }
         });
     }
