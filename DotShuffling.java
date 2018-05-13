@@ -12,6 +12,11 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
 {
     private Sensor mySensor;
     private SensorManager SM;
+    TextView dot1;
+    TextView dot2;
+    TextView dot3;
+    TextView dot4;
+    TextView dot5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,10 +33,6 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
         TextView dot3 = (TextView) findViewById(R.id.dot3);
         TextView dot4 = (TextView) findViewById(R.id.dot4);
         TextView dot5 = (TextView) findViewById(R.id.dot5);
-        TextView dot6 = (TextView) findViewById(R.id.dot6);
-        TextView dot7 = (TextView) findViewById(R.id.dot7);
-        TextView dot8 = (TextView) findViewById(R.id.dot8);
-        TextView dot9 = (TextView) findViewById(R.id.dot9);
 
     }
 
@@ -44,6 +45,19 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event)
     {
-        event.values[0];
+        dot1.setX(dot1.getX() + event.values[0]);
+        dot1.setY(dot1.getY() + event.values[1]);
+
+        dot2.setX(dot2.getX() + event.values[0]);
+        dot2.setY(dot2.getY() + event.values[1]);
+
+        dot3.setX(dot3.getX() + event.values[0]);
+        dot3.setY(dot3.getY() + event.values[1]);
+
+        dot4.setX(dot4.getX() + event.values[0]);
+        dot4.setY(dot4.getY() + event.values[1]);
+
+        dot5.setX(dot5.getX() + event.values[0]);
+        dot5.setY(dot5.getY() + event.values[1]);
     }
 }
