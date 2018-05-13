@@ -6,4 +6,102 @@
     android:layout_height="match_parent"
     tools:context="com.anderson.bryce.fidgetapp.DotShuffling">
 
+    <TextView
+        android:id="@+id/dot1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/dot3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot5"
+        tools:layout_editor_absoluteY="237dp" />
+
+    <TextView
+        android:id="@+id/dot2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/dot6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot9"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <TextView
+        android:id="@+id/dot3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot1"
+        tools:layout_editor_absoluteY="237dp" />
+
+    <TextView
+        android:id="@+id/dot4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/dot7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot8"
+        tools:layout_editor_absoluteY="275dp" />
+
+    <TextView
+        android:id="@+id/dot5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/dot1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="237dp" />
+
+    <TextView
+        android:id="@+id/dot6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot2"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <TextView
+        android:id="@+id/dot7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot4"
+        tools:layout_editor_absoluteY="275dp" />
+
+    <TextView
+        android:id="@+id/dot8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/dot4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="275dp" />
+
+    <TextView
+        android:id="@+id/dot9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="██"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/dot2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="199dp" />
 </android.support.constraint.ConstraintLayout>
