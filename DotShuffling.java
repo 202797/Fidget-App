@@ -24,7 +24,6 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
 
     private float circX;
     private float circY;
-    private float circR = 30;
 
     private Timer timer;
     private Handler handler;
@@ -35,11 +34,6 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
     private float sensorX;
     private float sensorY;
     private float sensorZ;
-    private long interval;
-    private double velocityX;
-    private double vx = 0;
-    private double velocityY;
-    private double vy = 0;
 
     private long lastSensorUpdateTime = 0;
 
@@ -57,8 +51,8 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
         final Point size = new Point();
         display.getSize(size);
 
-        circX = (size.x) / 2 - circR;
-        circY = (size.y) / 2 - circR;
+        circX = (size.x) / 2;
+        circY = (size.y) / 2 - 120;
 
         canvas = new CanvasView(DotShuffling.this);
         setContentView(canvas);
@@ -78,51 +72,33 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
             @Override
             public void run()
             {   //tilt --> = -accel
-                if (sensorX < 0)
+                if (circX >= display.getWidth() - 30)
                 {
-                    circX -= velocityX;
+                    circX = display.getWidth() - 30;
+                    circX -= sensorX;
                 }
-                //tilt <-- = +accel
-                else if (sensorX > 0)
+                if (circX <= 30)
                 {
-                    circX -= velocityX;
+                    circX = 30;
+                    circX -= sensorX;
                 }
-                // tilt ^ = +accel
-                if (sensorY > 0 && circY < canvas.getHeight() - circR)
+                if (circY >= display.getHeight() - 240)
                 {
-                    circY += velocityY;
+                    circY = display.getHeight() - 240;
+                    circY += sensorY;
                 }
-                //tilt v = -accel
-                else if (sensorY < 0 && circY > circR)
+                if (circY <= 30)
                 {
-                    circY += velocityY;
+                    circY = 30;
+                    circY += sensorY;
                 }
+                    circX -= sensorX;
+                    circY += sensorY;
 
-                if (circX > canvas.getWidth() - circR)
-                {
-                    circX -= circX - (canvas.getWidth() - circR);
-                    velocityX = 0;
-                }
-                else if (circX < circR)
-                {
-                    circX += circR - circX;
-                    velocityX = 0;
-                }
-
-                if (circY > canvas.getHeight() - circR)
-                {
-                    circY -= circY - (canvas.getHeight() - circR);
-                    velocityY = 0;
-                }
-                else if (circY < circR)
-                {
-                    circY += circR - circY;
-                    velocityY = 0;
-                }
 
                 handler.sendEmptyMessage(0);
             }
-        }, 0, 1 );
+        }, 0, 10);
     }
 
     private class CanvasView extends View
@@ -142,7 +118,7 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
             paint.setAntiAlias(true);
             paint.setTextSize(30f);
 
-            canvas.drawCircle(circX, circY, circR, paint);
+            canvas.drawCircle(circX, circY, 30, paint);
         }
     }
 
@@ -152,16 +128,14 @@ public class DotShuffling extends AppCompatActivity implements SensorEventListen
     {
         if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
         {
-            sensorX = sensorEvent.values[0];
-            sensorY = sensorEvent.values[1];
-            sensorZ = sensorEvent.values[2];
             long currentTime = System.currentTimeMillis();
-            interval = currentTime - lastSensorUpdateTime;
-            lastSensorUpdateTime = currentTime;
-            velocityX = vx + (sensorX*(interval/(double)1000));
-            vx = velocityX;
-            velocityY = vy + (sensorY*(interval/(double)1000));
-            vy = velocityY;
+            if (currentTime - lastSensorUpdateTime > 100)
+            {
+                lastSensorUpdateTime = currentTime;
+                sensorX = sensorEvent.values[0];
+                sensorY = sensorEvent.values[1];
+                sensorZ = sensorEvent.values[2];
+            }
         }
     }
 
