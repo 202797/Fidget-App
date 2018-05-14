@@ -21,7 +21,8 @@
         <activity android:name=".Vibrations" />
         <activity android:name=".ColorOrganization" />
         <activity android:name=".WhiteNoise" />
-        <activity android:name=".DotShuffling" />
+        <activity android:name=".DotShuffling"
+            android:screenOrientation="portrait"/>
         <activity android:name=".DialsAndSliders" />
     </application>
 
