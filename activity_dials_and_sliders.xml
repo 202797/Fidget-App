@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.anderson.bryce.fidgetapp.DialsAndSliders">
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imgView2"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imgView"
+        android:layout_marginTop="165dp"
+        android:src="@drawable/graphic_ring"></ImageView>
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/graphic_ring"></ImageView>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="239dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgView2"
+        android:layout_alignParentEnd="true" />
+
+    <SeekBar
+        android:id="@+id/seekBar3"
+        android:layout_width="239dp"
+        android:layout_height="20dp"
+        android:layout_above="@+id/imgView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="-165dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="239dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/imgView" />
+</RelativeLayout>
