@@ -37,49 +37,58 @@ public class DialsAndSliders extends AppCompatActivity implements OnTouchListene
         final float x = event.getX();
         final float y = event.getY();
 
-        switch (event.getAction())
-        {
-            case MotionEvent.ACTION_DOWN:
-            {
-                dial1.clearAnimation();
-                mCurrAngle = Math.toDegrees(Math.atan2(x - xc, yc - y));
-                break;
-            }
-            case MotionEvent.ACTION_MOVE:
-            {
-                mPrevAngle = mCurrAngle;
-                mCurrAngle = Math.toDegrees(Math.atan2(x - xc, yc - y));
-                animate(mPrevAngle, mCurrAngle, 0);
-                break;
-            }
-            case MotionEvent.ACTION_UP :
-            {
-                mPrevAngle = mCurrAngle = 0;
-                break;
-            }
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////
         final float xc2 = dial2.getWidth() / 2;
         final float yc2 = dial2.getHeight() / 2;
 
         final float x2 = event.getX();
         final float y2 = event.getY();
 
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN: {
-                dial2.clearAnimation();
-                mCurrAngle2 = Math.toDegrees(Math.atan2(x2 - xc2, yc2 - y2));
-                break;
+        if (v.getId() == R.id.imgView)
+        {
+            switch (event.getAction())
+            {
+                case MotionEvent.ACTION_DOWN:
+                {
+                    dial1.clearAnimation();
+                    mCurrAngle = Math.toDegrees(Math.atan2(x - xc, yc - y));
+                    break;
+                }
+                case MotionEvent.ACTION_MOVE:
+                {
+                    mPrevAngle = mCurrAngle;
+                    mCurrAngle = Math.toDegrees(Math.atan2(x - xc, yc - y));
+                    animate(mPrevAngle, mCurrAngle, 0);
+                    break;
+                }
+                case MotionEvent.ACTION_UP :
+                {
+                    mPrevAngle = mCurrAngle = 0;
+                    break;
+                }
             }
-            case MotionEvent.ACTION_MOVE: {
-                mPrevAngle2 = mCurrAngle2;
-                mCurrAngle2 = Math.toDegrees(Math.atan2(x2 - xc2, yc2 - y2));
-                animate2(mPrevAngle2, mCurrAngle2, 0);
-                break;
-            }
-            case MotionEvent.ACTION_UP : {
-                mPrevAngle2 = mCurrAngle2 = 0;
-                break;
+        }
+        else if (v.getId() == R.id.imgView2)
+        {
+            switch (event.getAction())
+            {
+                case MotionEvent.ACTION_DOWN:
+                {
+                    dial2.clearAnimation();
+                    mCurrAngle2 = Math.toDegrees(Math.atan2(x2 - xc2, yc2 - y2));
+                    break;
+                }
+                case MotionEvent.ACTION_MOVE:
+                {
+                    mPrevAngle2 = mCurrAngle2;
+                    mCurrAngle2 = Math.toDegrees(Math.atan2(x2 - xc2, yc2 - y2));
+                    animate2(mPrevAngle2, mCurrAngle2, 0);
+                    break;
+                }
+                case MotionEvent.ACTION_UP :
+                {
+                    mPrevAngle2 = mCurrAngle2 = 0;
+                    break;
+                }
             }
         }
         return true;
@@ -95,33 +104,6 @@ public class DialsAndSliders extends AppCompatActivity implements OnTouchListene
         dial1.startAnimation(rotate);
     }
 
-   /* public boolean onTouch2(final View v, MotionEvent event) {
-        final float xc2 = dial2.getWidth() / 2;
-        final float yc2 = dial2.getHeight() / 2;
-
-        final float x2 = event.getX();
-        final float y2 = event.getY();
-
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN: {
-                dial2.clearAnimation();
-                mCurrAngle2 = Math.toDegrees(Math.atan2(x2 - xc2, yc2 - y2));
-                break;
-            }
-            case MotionEvent.ACTION_MOVE: {
-                mPrevAngle2 = mCurrAngle2;
-                mCurrAngle2 = Math.toDegrees(Math.atan2(x2 - xc2, yc2 - y2));
-                animate2(mPrevAngle2, mCurrAngle2, 0);
-                break;
-            }
-            case MotionEvent.ACTION_UP : {
-                mPrevAngle2 = mCurrAngle2 = 0;
-                break;
-            }
-        }
-        return true;
-    }
-*/
     private void animate2(double fromDegrees, double toDegrees, long durationMillis) {
         final RotateAnimation rotate = new RotateAnimation((float) fromDegrees, (float) toDegrees,
                 RotateAnimation.RELATIVE_TO_SELF, 0.5f,
@@ -132,4 +114,3 @@ public class DialsAndSliders extends AppCompatActivity implements OnTouchListene
         dial2.startAnimation(rotate);
     }
 }
-
